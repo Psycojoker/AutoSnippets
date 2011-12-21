@@ -20,7 +20,7 @@ if col == len(line) - 1:
     elif re.match("^ *for [a-zA-Z, ]+?[^,] $", line):
         vim.current.buffer[row-1] = line + "in "
         vim.command("norm! A")
-    elif re.match("^ *((while|class|def|for) .+|else|(el)?if .+):$", line):
+    elif re.match("^ *((while|class|def|for|except) .+|else|try|(el)?if .+):$", line):
         spaces = re.match("(^ *)", line).groups()[0]
         # stupid dirty trick to make a <cr> while conserving indentation
         vim.command("norm! ox")
