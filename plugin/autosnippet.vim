@@ -11,7 +11,7 @@ def current_line():
 line = current_line()
 
 if col == len(line) - 1:
-    if re.match("^ *from \w+ $", line):
+    if re.match("^ *from [\w.]+ $", line):
         vim.current.buffer[row-1] = line + "import "
         vim.command("norm! A")
     elif re.match("^ *for [a-zA-Z]+ $", line):
